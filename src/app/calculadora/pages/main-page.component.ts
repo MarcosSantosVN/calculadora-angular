@@ -8,14 +8,7 @@ import { Cuenta } from '../interfaces/cuenta.interface';
 
 export class MainPageComponent {
 
-  historial: Cuenta[] = [{
-    premisa: '5+5',
-    resultado: '10'
-  },
-  {
-    premisa: '2+2',
-    resultado: 'Error'
-  }];
+  historial: Cuenta[] = [];
 
   addHisto(lastCalc: Cuenta) {
     this.historial.push(lastCalc);
