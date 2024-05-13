@@ -5,15 +5,16 @@
     </div>
   </div>
   <div class="row justify-content-around">
-    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+    <div class="col-8 col-sm-5 col-md-5 col-lg-5">
 
-      <app-calc-cuenta></app-calc-cuenta>
+      <app-calc-cuenta (onNewResult)="addHisto($event)"></app-calc-cuenta>
 
     </div>
 
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
-      <app-calc-historial></app-calc-historial>
+    <div class="col-8 col-sm-4 col-md-4 col-lg-4">
+
+      <app-calc-historial [historial]="historial"></app-calc-historial>
 
     </div>
   </div>

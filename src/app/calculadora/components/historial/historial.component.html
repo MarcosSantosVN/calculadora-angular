@@ -1,14 +1,30 @@
 <div class="row row-no-gutters justify-content-center">
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-    <h3 class="text-center" id="borrarHisto" onmouseover="this.innerHTML = 'Borrar historial'"
-      onmouseout="this.innerHTML = 'Pulsar para borrar historial de búsqueda'">
-      Pulsar para borrar historial de búsqueda
-    </h3>
+  <div class="col-10 col-sm-10 col-md-10 col-lg-10 d-grid">
+
+    <h3 class="text-center">Historial de búsqueda</h3>
+    <button type="button" (click)="onDelete()" class="btn btn-outline-dark btn-block p-3 shadow"
+      onmouseover="this.innerHTML = 'Borrar historial'"
+      onmouseout="this.innerHTML = 'Pulsar para borrar el historial'">Pulsar para borrar el historial</button>
+
   </div>
 </div>
 
+<hr>
+
 <div class="row row-no-gutters justify-content-center">
-  <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <h4 id="resultHisto"></h4>
+  <div class="col-12 col-sm-12 col-md-12 text-center">
+    <ul class="list-group">
+      <li *ngFor="let cuenta of historial" class="list-group-item border border-0 p-0">
+        <div *ngIf="cuenta.resultado == 'Error';else todoOk" class="rounded border border-warning p-2 mt-1">
+          <span class="text-warning">{{cuenta.premisa}} = <strong>{{cuenta.resultado}}</strong></span>
+        </div>
+        <ng-template #todoOk>
+          <div class="rounded border border-success p-2 mt-1">
+            <span class="text-success">{{cuenta.premisa}} = <strong>{{cuenta.resultado}}</strong></span>
+          </div>
+
+        </ng-template>
+      </li>
+    </ul>
   </div>
 </div>
